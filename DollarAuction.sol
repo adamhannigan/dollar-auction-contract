@@ -23,7 +23,7 @@ contract DollarAuction is ERC721 {
     
     uint DOLLAR_TOKEN_ID = 1;
     
-    constructor() ERC721("DollarAuction", "DA") {
+    constructor() ERC721("Dollar Auction", "DA") {
         owner = payable(msg.sender);
             
         // Dollar Auction is the first owner for a price of $0
