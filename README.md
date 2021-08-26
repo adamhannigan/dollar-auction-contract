@@ -4,6 +4,8 @@ This repo contains the smart contract that is powering the Dollar Auction NFT.
 
 It extends the functionality of Open Zepellin ERC721 and adds extra behaviour.
 
+The Contract can be found at `0x7a12fb01db68A26501403Ec389A9A12260943740`
+
 # What is a Dollar Auction
 
 A dollar auction was an experiment designed by Martin Shubik to illustrate a non-zero sum game.
