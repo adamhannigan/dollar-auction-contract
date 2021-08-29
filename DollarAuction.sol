@@ -23,7 +23,7 @@ contract DollarAuction is ERC721 {
     
     uint DOLLAR_TOKEN_ID = 1;
     
-    constructor() ERC721("www.dollar-auction.com", "DA") {
+    constructor() ERC721("dollar-auction.com", "BID") {
         owner = payable(msg.sender);
             
         // Dollar Auction is the first owner for a price of $0
@@ -91,8 +91,6 @@ contract DollarAuction is ERC721 {
     
     // Allow users to mint their bids
     function mint(address to, uint256 bidNumber) public {
-        require(bidNumber <= bids.length - 2, "Cannot mint a token that is the first or second highest bid");
-
         require(bidNumber > DOLLAR_TOKEN_ID, "You cannot mint the original dollar");
 
         Bid memory bid = bids[bidNumber - 1];
@@ -104,22 +102,25 @@ contract DollarAuction is ERC721 {
     
     function transferFrom(address from, address to, uint256 tokenId) public override {
         require(tokenId > DOLLAR_TOKEN_ID, "You cannot transfer the original dollar");
-        require(tokenId <= bids.length - 2, "Cannot transfer a token that is first or second highest bid");
         
         super.transferFrom(from, to, tokenId);
     }
 
     function safeTransferFrom(address from, address to, uint256 tokenId) public override {
         require(tokenId > DOLLAR_TOKEN_ID, "You cannot transfer the original dollar");
-        require(tokenId <= bids.length - 2, "Cannot safe transfer a token that is first or second highest bid");
         
         super.safeTransferFrom(from, to, tokenId);
     }
 
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data) public override {
         require(tokenId > DOLLAR_TOKEN_ID, "You cannot transfer the original dollar");
-        require(tokenId <= bids.length - 2, "Cannot safe transfer a token that is first or second highest bid");
         
         super.safeTransferFrom(from, to, tokenId, _data);
+    }
+
+    function approve(address to, uint256 tokenId) public override {
+        require(tokenId > DOLLAR_TOKEN_ID, "You cannot approve the original dollar");
+        
+        super.approve(to, tokenId);
     }
 }
