@@ -1,3 +1,9 @@
+# Testing purposes only
+
+This smart contract is only for experimental purposes only. I do not recommend you interact with it.
+
+It has not been audited and you shall interact with it at your own risk.
+
 # Dollar Auction
 
 This repo contains the smart contract that is powering the Dollar Auction NFT.
